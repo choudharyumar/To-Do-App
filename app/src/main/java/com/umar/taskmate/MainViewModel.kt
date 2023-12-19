@@ -16,7 +16,8 @@ class MainViewModel(private val context: Context):ViewModel() {
     fun getNotesView():LiveData<List<Notes>> {
        return notesRepository.getNotesR()
     }
-    fun InsertNotesView(notes: Notes)
+
+    fun insertNotesView(notes: Notes)
     {
      viewModelScope.launch (Dispatchers.IO){
          notesRepository.InsertNotesR(notes)
@@ -28,5 +29,7 @@ class MainViewModel(private val context: Context):ViewModel() {
             notesRepository.DeleteNotesR(notes)
         }
     }
+
+
 
 }

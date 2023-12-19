@@ -8,24 +8,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.umar.taskmate.databinding.FragmentToDoFragmentBinding
 
 
-class ToDo_fragment : Fragment() {
-
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: MyAdapter
-    private lateinit var newArrayList: ArrayList<String>
-    private lateinit var binding: FragmentToDoFragmentBinding
-    private lateinit var heading: Array<String>
-    lateinit var btn: Button
-    lateinit var Inputtext: EditText
-
+class ToDo_fragment : Fragment(), MyAdapterInterface {
+    private var myAdapter: MyAdapter? = null
+    private var listOfNotes: MutableList<Notes> = mutableListOf()
     private lateinit var notesViewModel: MainViewModel
+    private lateinit var binding: FragmentToDoFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,50 +29,36 @@ class ToDo_fragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        heading = arrayOf(
-            "A quick brown fox jumps over the lazy dog",
-            "A quick brown fox jumps over the lazy dog",
-            "A quick brown fox jumps over the lazy dog",
-        )
-        btn = binding.btnClick
-        Inputtext = binding.edittext
-        recyclerView = binding.recyclerView
-        // Use requireContext() or getContext() to get the valid context
-        val layoutManager = LinearLayoutManager(requireContext())
-        // Set the layout manager for your RecyclerView
-        recyclerView.layoutManager = layoutManager
-        recyclerView.setHasFixedSize(true)
-        newArrayList = arrayListOf<String>()
-        getUserData()
-        adapter.setOnItemClickListener(object : MyAdapter.onItemClickListener {
-            override fun OnItemClick(position: Int) {
-
-            }
-        })
-
         activity?.let { fragmentActivity ->
             notesViewModel = ViewModelProvider(this, ViewModelFactory(fragmentActivity))[MainViewModel::class.java]
         }
-    }
-
-    private fun getUserData() {
-        for (i in heading.indices) {
-            val news = (heading[i])
-            newArrayList.add(news)
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        myAdapter= MyAdapter(this)
+        binding.recyclerView.adapter=myAdapter
+        notesViewModel.getNotesView().observe(viewLifecycleOwner) {
+            listOfNotes.clear()
+            listOfNotes = it.toMutableList()
+            myAdapter?.setData(listOfNotes)
         }
-        adapter = MyAdapter(newArrayList)
-        recyclerView.adapter = adapter
-        btn.setOnClickListener {
-            var input2 = Inputtext.text.toString()
-            if (input2 != "") {
-                newArrayList.add(input2)
-                Inputtext.setText("")
-                adapter.notifyDataSetChanged()
-            } else {
-                Toast.makeText(requireContext(), "Plz first write", Toast.LENGTH_LONG).show()
+
+        binding.btnClick.setOnClickListener {
+            val todoText=binding.edittext.text.toString()
+            if (todoText.isNotEmpty()){
+                val notes=Notes(messages = todoText)
+                notesViewModel.insertNotesView(notes)
+                binding.edittext.text.clear()
+            }
+            else{
+                Toast.makeText(requireContext(),"To-Do can't be empty",Toast.LENGTH_LONG).show()
             }
         }
+
     }
 
-
+    override fun onTodoClick(position: Int) {
+        notesViewModel.DeleteNotesView(listOfNotes[position])
+        requireContext()
+    }
 }
+
+
