@@ -52,7 +52,7 @@ class ToDo_fragment : Fragment(), MyAdapterInterface {
                 Toast.makeText(requireContext(),"To-Do can't be empty",Toast.LENGTH_LONG).show()
             }
         }
-
+        binding.recyclerView.setHasFixedSize(true)
     }
 
     override fun onTodoClick(position: Int) {
