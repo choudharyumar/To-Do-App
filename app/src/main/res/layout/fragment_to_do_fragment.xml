@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#C5C2C2"
-    tools:context=".ToDo_fragment">
+    tools:context=".ui.ToDo_fragment">
 
     <TextView
         android:id="@+id/taskView"

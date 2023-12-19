@@ -1,12 +1,12 @@
-package com.umar.taskmate
+package com.umar.taskmate.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.umar.taskmate.R
 import com.umar.taskmate.databinding.FragmentSplashBinding
 
 

@@ -1,6 +1,8 @@
-package com.umar.taskmate
+package com.umar.taskmate.repository
 
 import androidx.lifecycle.LiveData
+import com.umar.taskmate.data.Notes
+import com.umar.taskmate.data.NotesDao
 
 class NotesRepository(val notesDao: NotesDao) {
 

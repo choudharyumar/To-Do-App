@@ -1,4 +1,4 @@
-package com.umar.taskmate
+package com.umar.taskmate.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

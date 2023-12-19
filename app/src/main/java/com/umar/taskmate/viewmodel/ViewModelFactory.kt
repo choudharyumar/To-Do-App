@@ -1,4 +1,4 @@
-package com.umar.taskmate
+package com.umar.taskmate.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.ViewModel

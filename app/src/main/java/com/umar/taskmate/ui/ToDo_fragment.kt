@@ -1,16 +1,17 @@
-package com.umar.taskmate
+package com.umar.taskmate.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.umar.taskmate.databinding.FragmentToDoFragmentBinding
+import com.umar.taskmate.data.Notes
+import com.umar.taskmate.viewmodel.MainViewModel
+import com.umar.taskmate.viewmodel.ViewModelFactory
 
 
 class ToDo_fragment : Fragment(), MyAdapterInterface {
@@ -44,7 +45,7 @@ class ToDo_fragment : Fragment(), MyAdapterInterface {
         binding.btnClick.setOnClickListener {
             val todoText=binding.edittext.text.toString()
             if (todoText.isNotEmpty()){
-                val notes=Notes(messages = todoText)
+                val notes= Notes(messages = todoText)
                 notesViewModel.insertNotesView(notes)
                 binding.edittext.text.clear()
             }

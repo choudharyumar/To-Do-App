@@ -1,4 +1,4 @@
-package com.umar.taskmate
+package com.umar.taskmate.ui
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.umar.taskmate.R
+import com.umar.taskmate.data.Notes
 
 
 //
@@ -43,7 +45,7 @@ class MyAdapter(private val myAdapterInterface: MyAdapterInterface) : RecyclerVi
     }
 
     @SuppressLint("SuspiciousIndentation")
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.layout, parent, false)
         return ViewHolder(itemView)
     }

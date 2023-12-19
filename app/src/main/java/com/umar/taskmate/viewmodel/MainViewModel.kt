@@ -1,9 +1,13 @@
-package com.umar.taskmate
+package com.umar.taskmate.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.umar.taskmate.data.Notes
+import com.umar.taskmate.data.NotesDao
+import com.umar.taskmate.data.NotesDataBase
+import com.umar.taskmate.repository.NotesRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

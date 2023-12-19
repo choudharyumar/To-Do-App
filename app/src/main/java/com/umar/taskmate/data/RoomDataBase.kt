@@ -1,4 +1,4 @@
-package com.umar.taskmate
+package com.umar.taskmate.data
 
 import android.content.Context
 import androidx.room.Database
@@ -12,10 +12,10 @@ abstract class NotesDataBase : RoomDatabase() {
     companion object {
         @Volatile
         private var INSTANCE: NotesDataBase? = null
-        fun getDB(context: Context):NotesDataBase{
+        fun getDB(context: Context): NotesDataBase {
             synchronized(this){
-                if (INSTANCE==null){
-                    INSTANCE= Room.databaseBuilder(
+                if (INSTANCE ==null){
+                    INSTANCE = Room.databaseBuilder(
                         context,
                       NotesDataBase::class.java,
                         "notes"

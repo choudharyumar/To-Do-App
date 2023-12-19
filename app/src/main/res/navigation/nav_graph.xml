@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.umar.taskmate.SplashFragment"
+        android:name="com.umar.taskmate.ui.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/toDo_fragment"
-        android:name="com.umar.taskmate.ToDo_fragment"
+        android:name="com.umar.taskmate.ui.ToDo_fragment"
         android:label="fragment_to_do_fragment"
         tools:layout="@layout/fragment_to_do_fragment" />
 </navigation>

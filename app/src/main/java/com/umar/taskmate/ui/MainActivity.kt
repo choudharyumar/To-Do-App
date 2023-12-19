@@ -1,4 +1,4 @@
-package com.umar.taskmate
+package com.umar.taskmate.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
