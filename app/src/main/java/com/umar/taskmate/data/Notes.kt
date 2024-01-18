@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey
 data class Notes(
     @PrimaryKey(autoGenerate = true)
     val id:Int = 0,
-    val messages:String
+    val messages:String,
+    val isLeftMessage:Boolean
 
 )

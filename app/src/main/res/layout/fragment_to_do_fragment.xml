@@ -24,47 +24,62 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnClick"
+        android:id="@+id/btnClickRight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="+"
-        android:textStyle="bold"
-        android:textSize="34dp"
         android:layout_margin="10dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:background="@drawable/btn"
-        android:paddingHorizontal="20dp"
-        />
+        android:paddingHorizontal="15dp"
+        android:text="R(+)"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/edittext"/>
+
     <EditText
         android:id="@+id/edittext"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
-        android:textStyle="bold"
-       android:hint="Write"
-        android:padding="13dp"
-        android:textColor="@color/black"
         android:layout_margin="10dp"
         android:background="@drawable/btn"
-        app:layout_constraintEnd_toStartOf="@+id/btnClick"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="Write"
+        android:padding="13dp"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnClickRight"
+        app:layout_constraintStart_toEndOf="@+id/btnClickLeft"
+        />
+    <Button
+        android:id="@+id/btnClickLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn"
+        android:paddingHorizontal="15dp"
+        android:text="L(+)"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/edittext"
 
         />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scrollbars="vertical"
         android:scrollbarSize="7dp"
-        app:layout_constraintTop_toBottomOf="@+id/taskView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/edittext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskView"
         />
 
 

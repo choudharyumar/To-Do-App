@@ -43,10 +43,12 @@ class ToDo_fragment : Fragment(), MyAdapterInterface {
             listOfNotes = it.toMutableList()
             myAdapter?.setData(listOfNotes)
         }
-        binding.btnClick.setOnClickListener {
+
+
+       binding.btnClickLeft.setOnClickListener {
             val todoText=binding.edittext.text.toString()
             if (todoText.isNotEmpty()){
-                val notes= Notes(messages = todoText)
+                val notes= Notes(messages = todoText, isLeftMessage = true)
                 notesViewModel.insertNotesView(notes)
                 binding.edittext.text.clear()
             }
