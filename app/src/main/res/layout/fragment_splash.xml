@@ -48,10 +48,7 @@
         app:layout_constraintEnd_toEndOf="@+id/welcomeText"
         />
     <TextView
-<<<<<<< HEAD
         android:id="@+id/schedule"
-=======
->>>>>>> c47c5cd302be2098b43993ce0e06afb6b5399537
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Schedule your day"
@@ -64,7 +61,6 @@
         android:layout_marginTop="10dp"
         />
 
-<<<<<<< HEAD
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
@@ -76,8 +72,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />
-=======
->>>>>>> c47c5cd302be2098b43993ce0e06afb6b5399537
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.umar.taskmate.databinding.FragmentToDoFragmentBinding
 import com.umar.taskmate.data.Notes
 import com.umar.taskmate.viewmodel.MainViewModel
 import com.umar.taskmate.viewmodel.ViewModelFactory
+import kotlin.system.exitProcess
 
 
 class ToDo_fragment : Fragment(), MyAdapterInterface {
@@ -41,7 +43,6 @@ class ToDo_fragment : Fragment(), MyAdapterInterface {
             listOfNotes = it.toMutableList()
             myAdapter?.setData(listOfNotes)
         }
-
         binding.btnClick.setOnClickListener {
             val todoText=binding.edittext.text.toString()
             if (todoText.isNotEmpty()){
@@ -56,10 +57,16 @@ class ToDo_fragment : Fragment(), MyAdapterInterface {
         binding.recyclerView.setHasFixedSize(true)
     }
 
+//    override fun onPause() {
+//        super.onPause()
+//        exitProcess(0)
+//    }
+
     override fun onTodoClick(position: Int) {
         notesViewModel.DeleteNotesView(listOfNotes[position])
         requireContext()
     }
+
 }
 
 

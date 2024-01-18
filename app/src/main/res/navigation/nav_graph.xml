@@ -9,14 +9,18 @@
         android:id="@+id/splashFragment"
         android:name="com.umar.taskmate.ui.SplashFragment"
         android:label="fragment_splash"
-        tools:layout="@layout/fragment_splash" >
+        tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splashFragment_to_toDo_fragment"
-            app:destination="@id/toDo_fragment" />
+            app:destination="@id/toDo_fragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/toDo_fragment"
         android:name="com.umar.taskmate.ui.ToDo_fragment"
         android:label="fragment_to_do_fragment"
-        tools:layout="@layout/fragment_to_do_fragment" />
+        tools:layout="@layout/fragment_to_do_fragment">
+    </fragment>
+
 </navigation>

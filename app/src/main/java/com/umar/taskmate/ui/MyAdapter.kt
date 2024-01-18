@@ -9,33 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.umar.taskmate.R
 import com.umar.taskmate.data.Notes
 
-
-//
-//class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
-//    private var toDoList: List<Notes> = listOf()
-//
-//    fun setData(toDoList: List<Notes>) {
-//        this.toDoList = toDoList
-//        notifyDataSetChanged()
-//    }
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-//        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.layout, parent, false)
-//        return MyViewHolder(itemView)
-//    }
-//    override fun getItemCount(): Int {
-//        return toDoList.size
-//    }
-//    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-//        holder.tvHeading.text = toDoList[position].messages
-//
-//
-//    }
-//    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        val tvHeading: TextView = itemView.findViewById(R.id.tvHeading)
-//    }
-//
-//}
-
 class MyAdapter(private val myAdapterInterface: MyAdapterInterface) : RecyclerView.Adapter<MyAdapter.ViewHolder>() {
 
     private var toDoList: List<Notes> = listOf()
